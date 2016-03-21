@@ -126,6 +126,7 @@
     var modal = $(
       '<div id="'+id+'" class="modal '+fade+' '+modalClass+'" tabindex="-1" role="dialog" aria-labelledby="'+id+'Label" aria-hidden="true">' +
         '<div class="modal-dialog">' +
+          '<div class="modal-content">' +
             '<div class="modal-body"></div>' +
             '<div class="modal-footer">' +
               '<button class="btn cancel" data-dismiss="modal" aria-hidden="true"></button>' +

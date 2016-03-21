@@ -22,7 +22,6 @@
    * You can set global setting using `dataConfirmModal.setDefaults`, for example:
    *
    *    dataConfirmModal.setDefaults({
-   *      title: 'Confirm your action',
    *      commit: 'Continue',
    *      cancel: 'Cancel',
    *      verifyClass: 'form-control',
@@ -31,7 +30,6 @@
    */
 
   var defaults = {
-    title: 'Are you ABSOLUTELY sure?',
     commit: 'Confirm',
     cancel: 'Cancel',
     verifyClass: '',
@@ -91,7 +89,6 @@
 	continue;
 
       switch(property) {
-      case 'title': $tempElement.attr(property,  value); break;
       case 'text':  $tempElement.data('confirm', value); break;
       default:      $tempElement.data(property,  value); break;
       }
@@ -105,10 +102,6 @@
 
     var modal = $(
       '<div id="'+id+'" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="'+id+'Label" aria-hidden="true">' +
-        '<div class="modal-header">' +
-          '<button class="close" data-dismiss="modal" aria-hidden="true">×</button>' +
-          '<h3 id="'+id+'Label"></h3> ' +
-        '</div>' +
         '<div class="modal-body"></div>' +
         '<div class="modal-footer">' +
           '<button class="btn cancel" data-dismiss="modal" aria-hidden="true"></button>' +
@@ -116,10 +109,6 @@
         '</div>'+
       '</div>'
     );
-
-    var title = element.attr('title') || element.data('original-title') || settings.title;
-
-    modal.find('.modal-header h3').text(title);
 
     var body = modal.find('.modal-body');
 

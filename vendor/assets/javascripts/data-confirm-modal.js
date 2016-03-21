@@ -26,7 +26,6 @@
    * You can set global setting using `dataConfirmModal.setDefaults`, for example:
    *
    *    dataConfirmModal.setDefaults({
-   *      title: 'Confirm your action',
    *      commit: 'Continue',
    *      cancel: 'Cancel',
    *      fade:   false,
@@ -36,7 +35,6 @@
    */
 
   var defaults = {
-    title: 'Are you sure?',
     commit: 'Confirm',
     commitClass: 'btn-danger',
     cancel: 'Cancel',
@@ -91,7 +89,6 @@
 
   var buildElementModal = function (element) {
     var options = {
-      title:        element.attr('title') || element.data('original-title'),
       text:         element.data('confirm'),
       focus:        element.data('focus'),
       method:       element.data('method'),
@@ -129,11 +126,6 @@
     var modal = $(
       '<div id="'+id+'" class="modal '+fade+' '+modalClass+'" tabindex="-1" role="dialog" aria-labelledby="'+id+'Label" aria-hidden="true">' +
         '<div class="modal-dialog">' +
-          '<div class="modal-content">' +
-            '<div class="modal-header">' +
-              '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
-              '<h4 id="'+id+'Label" class="modal-title"></h4> ' +
-            '</div>' +
             '<div class="modal-body"></div>' +
             '<div class="modal-footer">' +
               '<button class="btn cancel" data-dismiss="modal" aria-hidden="true"></button>' +
@@ -153,8 +145,6 @@
       }
     });
     modal.css('z-index', parseInt(highest) + 1);
-
-    modal.find('.modal-title').text(options.title || settings.title);
 
     var body = modal.find('.modal-body');
 
